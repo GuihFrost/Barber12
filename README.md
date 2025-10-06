@@ -1,166 +1,192 @@
-# BarberTime
+# BarberTime - Sistema Completo de Agendamentos para Barbearia
 
-Sistema completo de agendamentos para barbearia com frontend React e backend Node.js.
+Sistema completo desenvolvido com **Laravel 12** e **React** para gerenciamento de agendamentos de barbearia.
 
-## 🚀 Arquitetura
+## 📁 Estrutura do Projeto
 
-### Frontend
-- **React 18** - Biblioteca JavaScript
-- **Vite** - Build tool
-- **TypeScript** - Tipagem estática
-- **Tailwind CSS** - Estilização
-- **Shadcn/ui** - Componentes UI
-- **React Router** - Roteamento
-- **React Query** - Gerenciamento de estado
-- **Context API** - Estado global
-
-### Backend
-- **Node.js** - Runtime JavaScript
-- **Express.js** - Framework web
-- **MongoDB** - Banco de dados
-- **Mongoose** - ODM
-- **JWT** - Autenticação
-- **Winston** - Logging
-
-## 📋 Pré-requisitos
-
-- Node.js 18+
-- MongoDB 5+
-- npm ou yarn
-
-## 🛠️ Instalação
-
-### 1. Clone o repositório
-```bash
-git clone <repository-url>
-cd barbertime
+```
+BarberTime/
+├── backend/          # Laravel 12 API
+│   ├── app/
+│   ├── database/
+│   ├── routes/
+│   ├── config/
+│   └── install.sh
+├── frontend/         # React Frontend
+│   ├── src/
+│   ├── public/
+│   └── install.sh
+└── README.md
 ```
 
-### 2. Configure o Backend
+## 🚀 Instalação Rápida
+
+### Pré-requisitos
+- PHP 8.2 ou superior
+- Composer
+- Node.js 16 ou superior
+- npm
+
+### 1. Instalar Backend (Laravel)
+
 ```bash
 cd backend
-npm install
-cp .env.example .env
-# Edite o arquivo .env com suas configurações
-npm run dev
+chmod +x install.sh
+./install.sh
 ```
 
-### 3. Configure o Frontend
+### 2. Instalar Frontend (React)
+
 ```bash
-cd ../
-npm install
-cp .env.example .env
-# Edite o arquivo .env com a URL da API
-npm run dev
+cd frontend
+chmod +x install.sh
+./install.sh
 ```
 
-### 4. Acesse a aplicação
-- Frontend: `http://localhost:5173`
-- Backend API: `http://localhost:5000`
+## 🎯 Como Executar
 
-## 🎨 Funcionalidades
+### Terminal 1 - Backend
+```bash
+cd backend
+php artisan serve
+```
+**Backend**: http://localhost:8000
 
-### Frontend
-- ✅ Landing page responsiva
-- ✅ Sistema de agendamentos em etapas
-- ✅ Dashboard administrativo completo
-- ✅ Gerenciamento de serviços e barbeiros
-- ✅ Sistema de clientes com histórico
-- ✅ Relatórios e analytics
-- ✅ Sistema de promoções
-- ✅ Avaliações e reviews
-- ✅ Autenticação e autorização
-- ✅ Design moderno e responsivo
+### Terminal 2 - Frontend
+```bash
+cd frontend
+npm run dev
+```
+**Frontend**: http://localhost:3000
 
-### Backend
-- ✅ API REST completa
-- ✅ Autenticação JWT
-- ✅ Sistema de roles (admin, barber, client)
-- ✅ Banco de dados MongoDB
-- ✅ Validação de dados
-- ✅ Rate limiting
-- ✅ Logs estruturados
-- ✅ Sistema de backup
-- ✅ Documentação da API
+## 📋 Funcionalidades
 
-## 📱 Responsividade
+### Backend (Laravel 12)
+- ✅ **API RESTful completa** com todos os endpoints
+- ✅ **4 Modelos** (Appointment, Barber, Service, Client)
+- ✅ **4 Controllers** com CRUD completo
+- ✅ **Migrations** para criar todas as tabelas
+- ✅ **Seeders** com dados de exemplo
+- ✅ **Validação** de dados completa
+- ✅ **Relacionamentos** entre modelos
+- ✅ **Middleware** de segurança
 
-O sistema é totalmente responsivo e funciona perfeitamente em:
-- 📱 Mobile (320px+)
-- 📱 Tablet (768px+)
-- 💻 Desktop (1024px+)
+### Frontend (React)
+- ✅ **Interface moderna** e responsiva
+- ✅ **5 Páginas** (Dashboard, Agendamentos, Barbeiros, Serviços, Clientes)
+- ✅ **Componentes** reutilizáveis
+- ✅ **Context API** para estado
+- ✅ **Serviços** para API
+- ✅ **Tailwind CSS** para estilização
 
-## 🔐 Segurança
+## 🔗 Endpoints da API
 
-- Autenticação JWT
-- Criptografia de senhas (bcrypt)
-- Rate limiting
-- Validação de dados
-- CORS configurado
-- Headers de segurança
+### Agendamentos
+- `GET /api/v1/appointments` - Listar agendamentos
+- `POST /api/v1/appointments` - Criar agendamento
+- `GET /api/v1/appointments/{id}` - Buscar agendamento
+- `PUT /api/v1/appointments/{id}` - Atualizar agendamento
+- `DELETE /api/v1/appointments/{id}` - Excluir agendamento
+- `POST /api/v1/appointments/{id}/confirm` - Confirmar agendamento
+- `POST /api/v1/appointments/{id}/cancel` - Cancelar agendamento
 
-## 📊 Monitoramento
+### Barbeiros
+- `GET /api/v1/barbers` - Listar barbeiros
+- `POST /api/v1/barbers` - Criar barbeiro
+- `GET /api/v1/barbers/{id}` - Buscar barbeiro
+- `PUT /api/v1/barbers/{id}` - Atualizar barbeiro
+- `DELETE /api/v1/barbers/{id}` - Excluir barbeiro
 
-- Health check endpoint
-- Logs estruturados
-- Métricas de performance
-- Sistema de backup automático
+### Serviços
+- `GET /api/v1/services` - Listar serviços
+- `POST /api/v1/services` - Criar serviço
+- `GET /api/v1/services/{id}` - Buscar serviço
+- `PUT /api/v1/services/{id}` - Atualizar serviço
+- `DELETE /api/v1/services/{id}` - Excluir serviço
+
+### Clientes
+- `GET /api/v1/clients` - Listar clientes
+- `POST /api/v1/clients` - Criar cliente
+- `GET /api/v1/clients/{id}` - Buscar cliente
+- `PUT /api/v1/clients/{id}` - Atualizar cliente
+- `DELETE /api/v1/clients/{id}` - Excluir cliente
+
+### Dashboard
+- `GET /api/dashboard/stats` - Estatísticas do dashboard
+- `GET /api/health` - Health check
+
+## 🎨 Interface
+
+### Páginas Disponíveis
+- **Dashboard** - Visão geral com estatísticas
+- **Agendamentos** - Gestão completa de agendamentos
+- **Barbeiros** - Cadastro e gestão de barbeiros
+- **Serviços** - Catálogo de serviços oferecidos
+- **Clientes** - Cadastro e gestão de clientes
+
+### Recursos da Interface
+- 🎨 Design moderno e limpo
+- 📱 Totalmente responsiva
+- ⚡ Carregamento rápido
+- 🔄 Atualizações em tempo real
+- 🎯 Interface intuitiva
+
+## 🗄️ Banco de Dados
+
+### Tabelas Principais
+- **barbers** - Dados dos barbeiros
+- **services** - Serviços oferecidos
+- **clients** - Dados dos clientes
+- **appointments** - Agendamentos
+
+### Dados de Exemplo
+O sistema inclui dados de exemplo para demonstração:
+- 4 barbeiros cadastrados
+- 9 serviços disponíveis
+- 5 clientes de exemplo
+- 5 agendamentos de demonstração
+
+## 🔧 Configuração
+
+### Backend (.env)
+```env
+APP_NAME="BarberTime Backend"
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=sqlite
+DB_DATABASE=database/database.sqlite
+```
+
+### Frontend (vite.config.js)
+```javascript
+server: {
+  host: '0.0.0.0',
+  port: 3000,
+  proxy: {
+    '/api': {
+      target: 'http://localhost:8000',
+      changeOrigin: true,
+    }
+  }
+}
+```
+
+## 📱 Acesso
+
+Após a instalação, acesse:
+- **Frontend**: http://localhost:3000
+- **Backend**: http://localhost:8000
+- **API**: http://localhost:8000/api/health
 
 ## 🚀 Deploy
 
-### Docker
-```bash
-# Backend
-cd backend
-docker build -t barbertime-backend .
-docker run -p 5000:5000 barbertime-backend
-
-# Frontend
-docker build -t barbertime-frontend .
-docker run -p 3000:3000 barbertime-frontend
-```
-
-### Variáveis de Ambiente
-
-#### Frontend (.env)
-```env
-VITE_API_URL=http://localhost:5000/api
-VITE_APP_NAME=BarberTime
-```
-
-#### Backend (.env)
-```env
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/barbertime
-JWT_SECRET=your-super-secret-jwt-key-here
-NODE_ENV=development
-```
-
-## 🧪 Testes
-
-```bash
-# Backend
-cd backend
-npm test
-
-# Frontend
-npm test
-```
-
-## 📚 Documentação
-
-- [Backend API Documentation](./backend/README.md)
-- [Frontend Components](./src/components/README.md)
-- [Database Schema](./docs/database.md)
-
-## 🎯 Próximos Passos
-
-- [ ] PWA (Progressive Web App)
-- [ ] Notificações push
-- [ ] Integração com WhatsApp Business
-- [ ] Sistema de pagamentos
-- [ ] App mobile (React Native)
-- [ ] Analytics avançados
+### Para Produção
+1. Configure as variáveis de ambiente
+2. Execute `npm run build` no frontend
+3. Configure o servidor web (Apache/Nginx)
+4. Configure o banco de dados de produção
 
 ## 🤝 Contribuição
 
@@ -172,4 +198,8 @@ npm test
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT.
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+
+---
+
+**BarberTime** - Sistema completo de agendamentos para barbearia! ✂️💈
