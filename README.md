@@ -2,122 +2,82 @@
 
 Sistema completo desenvolvido com **Laravel 12** e **React** para gerenciamento de agendamentos de barbearia.
 
-## 🚀 Características
+## 📁 Estrutura do Projeto
 
-- ✅ **Laravel 12** com API RESTful completa
-- ✅ **React 18** com interface moderna e responsiva
-- ✅ **SQLite** como banco de dados (fácil de usar)
-- ✅ **Tailwind CSS** para estilização
-- ✅ **Vite** para build e desenvolvimento
-- ✅ **Sistema completo** com todas as funcionalidades
+```
+BarberTime/
+├── backend/          # Laravel 12 API
+│   ├── app/
+│   ├── database/
+│   ├── routes/
+│   ├── config/
+│   └── install.sh
+├── frontend/         # React Frontend
+│   ├── src/
+│   ├── public/
+│   └── install.sh
+└── README.md
+```
 
-## 📋 Funcionalidades
-
-### Backend (Laravel 12)
-- 🔐 API RESTful completa
-- 📊 Sistema de agendamentos
-- 👥 Gestão de barbeiros
-- 🛠️ Gestão de serviços
-- 👤 Gestão de clientes
-- 📈 Dashboard com estatísticas
-- 🗄️ Migrations e Seeders
-- 🔍 Validação de dados
-- 📝 Logs e tratamento de erros
-
-### Frontend (React)
-- 🎨 Interface moderna e responsiva
-- 📱 Design mobile-first
-- 🔄 SPA (Single Page Application)
-- 📊 Dashboard interativo
-- 📅 Gestão de agendamentos
-- 👥 Gestão de barbeiros e clientes
-- 🛠️ Gestão de serviços
-- ⚡ Carregamento rápido
-
-## 🛠️ Instalação Rápida
+## 🚀 Instalação Rápida
 
 ### Pré-requisitos
 - PHP 8.2 ou superior
 - Composer
 - Node.js 16 ou superior
-- npm ou yarn
+- npm
 
-### Instalação Automática
+### 1. Instalar Backend (Laravel)
+
 ```bash
-# Clone o repositório
-git clone <seu-repositorio>
-cd barbertime
-
-# Execute o script de instalação
+cd backend
+chmod +x install.sh
 ./install.sh
 ```
 
-### Instalação Manual
+### 2. Instalar Frontend (React)
+
 ```bash
-# 1. Instalar dependências do PHP
-composer install
-
-# 2. Instalar dependências do Node.js
-npm install
-
-# 3. Configurar ambiente
-cp .env.example .env
-php artisan key:generate
-
-# 4. Criar banco de dados
-touch database/database.sqlite
-
-# 5. Executar migrations e seeders
-php artisan migrate --seed
-
-# 6. Compilar assets
-npm run build
+cd frontend
+chmod +x install.sh
+./install.sh
 ```
 
-## 🚀 Como Executar
+## 🎯 Como Executar
 
-### Desenvolvimento
+### Terminal 1 - Backend
 ```bash
-# Terminal 1 - Backend (Laravel)
+cd backend
 php artisan serve
+```
+**Backend**: http://localhost:8000
 
-# Terminal 2 - Frontend (React)
+### Terminal 2 - Frontend
+```bash
+cd frontend
 npm run dev
 ```
+**Frontend**: http://localhost:3000
 
-### Produção
-```bash
-# Compilar assets
-npm run build
+## 📋 Funcionalidades
 
-# Executar servidor
-php artisan serve
-```
+### Backend (Laravel 12)
+- ✅ **API RESTful completa** com todos os endpoints
+- ✅ **4 Modelos** (Appointment, Barber, Service, Client)
+- ✅ **4 Controllers** com CRUD completo
+- ✅ **Migrations** para criar todas as tabelas
+- ✅ **Seeders** com dados de exemplo
+- ✅ **Validação** de dados completa
+- ✅ **Relacionamentos** entre modelos
+- ✅ **Middleware** de segurança
 
-## 📊 Estrutura do Projeto
-
-```
-BarberTime/
-├── app/
-│   ├── Http/Controllers/Api/     # Controllers da API
-│   ├── Models/                   # Modelos Eloquent
-│   └── Providers/                # Service Providers
-├── database/
-│   ├── migrations/               # Migrations do banco
-│   └── seeders/                  # Seeders com dados de exemplo
-├── resources/
-│   ├── js/                       # Código React
-│   │   ├── components/           # Componentes React
-│   │   ├── pages/                # Páginas da aplicação
-│   │   ├── services/             # Serviços da API
-│   │   └── contexts/             # Contextos React
-│   └── views/                    # Views Blade
-├── routes/
-│   ├── api.php                   # Rotas da API
-│   └── web.php                   # Rotas web
-├── public/                       # Arquivos públicos
-└── config/                       # Configurações
-```
+### Frontend (React)
+- ✅ **Interface moderna** e responsiva
+- ✅ **5 Páginas** (Dashboard, Agendamentos, Barbeiros, Serviços, Clientes)
+- ✅ **Componentes** reutilizáveis
+- ✅ **Context API** para estado
+- ✅ **Serviços** para API
+- ✅ **Tailwind CSS** para estilização
 
 ## 🔗 Endpoints da API
 
@@ -153,6 +113,7 @@ BarberTime/
 
 ### Dashboard
 - `GET /api/dashboard/stats` - Estatísticas do dashboard
+- `GET /api/health` - Health check
 
 ## 🎨 Interface
 
@@ -169,7 +130,6 @@ BarberTime/
 - ⚡ Carregamento rápido
 - 🔄 Atualizações em tempo real
 - 🎯 Interface intuitiva
-- 🌙 Suporte a temas
 
 ## 🗄️ Banco de Dados
 
@@ -188,45 +148,45 @@ O sistema inclui dados de exemplo para demonstração:
 
 ## 🔧 Configuração
 
-### Variáveis de Ambiente
+### Backend (.env)
 ```env
-APP_NAME="BarberTime"
+APP_NAME="BarberTime Backend"
 APP_ENV=local
 APP_DEBUG=true
 APP_URL=http://localhost:8000
 
 DB_CONNECTION=sqlite
 DB_DATABASE=database/database.sqlite
-
-VITE_APP_NAME="${APP_NAME}"
 ```
 
-### Personalização
-- Edite `resources/js/` para modificar o frontend
-- Edite `app/Http/Controllers/Api/` para modificar a API
-- Edite `database/seeders/` para modificar dados de exemplo
+### Frontend (vite.config.js)
+```javascript
+server: {
+  host: '0.0.0.0',
+  port: 3000,
+  proxy: {
+    '/api': {
+      target: 'http://localhost:8000',
+      changeOrigin: true,
+    }
+  }
+}
+```
 
 ## 📱 Acesso
 
 Após a instalação, acesse:
-- **Frontend**: http://localhost:8000
-- **API**: http://localhost:8000/api
-- **Health Check**: http://localhost:8000/api/health
+- **Frontend**: http://localhost:3000
+- **Backend**: http://localhost:8000
+- **API**: http://localhost:8000/api/health
 
 ## 🚀 Deploy
 
 ### Para Produção
 1. Configure as variáveis de ambiente
-2. Execute `npm run build`
+2. Execute `npm run build` no frontend
 3. Configure o servidor web (Apache/Nginx)
 4. Configure o banco de dados de produção
-
-### Docker (Opcional)
-```bash
-# Criar Dockerfile para o projeto
-docker build -t barbertime .
-docker run -p 8000:8000 barbertime
-```
 
 ## 🤝 Contribuição
 
@@ -239,13 +199,6 @@ docker run -p 8000:8000 barbertime
 ## 📄 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
-
-## 🆘 Suporte
-
-Para suporte ou dúvidas:
-- Abra uma issue no GitHub
-- Consulte a documentação do Laravel
-- Consulte a documentação do React
 
 ---
 
