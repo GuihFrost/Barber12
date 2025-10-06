@@ -1,13 +1,13 @@
 {
-    "name": "barbertime/api",
+    "name": "barbertime/barbershop",
     "type": "project",
-    "description": "BarberTime API - Sistema de agendamentos para barbearia",
-    "keywords": ["laravel", "api", "barbershop", "appointments"],
+    "description": "BarberTime - Sistema completo de agendamentos para barbearia",
+    "keywords": ["laravel", "barbershop", "appointments", "react", "api"],
     "license": "MIT",
     "require": {
         "php": "^8.2",
         "guzzlehttp/guzzle": "^7.2",
-        "laravel/framework": "12.0",
+        "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "spatie/laravel-permission": "^6.0"

@@ -1,166 +1,232 @@
-# BarberTime
+# BarberTime - Sistema Completo de Agendamentos para Barbearia
 
-Sistema completo de agendamentos para barbearia com frontend React e backend Node.js.
+Sistema completo desenvolvido com **Laravel 12** e **React** para gerenciamento de agendamentos de barbearia.
 
-## 🚀 Arquitetura
+## 🚀 Características
 
-### Frontend
-- **React 18** - Biblioteca JavaScript
-- **Vite** - Build tool
-- **TypeScript** - Tipagem estática
-- **Tailwind CSS** - Estilização
-- **Shadcn/ui** - Componentes UI
-- **React Router** - Roteamento
-- **React Query** - Gerenciamento de estado
-- **Context API** - Estado global
+- ✅ **Laravel 12** com API RESTful completa
+- ✅ **React 18** com interface moderna e responsiva
+- ✅ **SQLite** como banco de dados (fácil de usar)
+- ✅ **Tailwind CSS** para estilização
+- ✅ **Vite** para build e desenvolvimento
+- ✅ **Sistema completo** com todas as funcionalidades
 
-### Backend
-- **Node.js** - Runtime JavaScript
-- **Express.js** - Framework web
-- **MongoDB** - Banco de dados
-- **Mongoose** - ODM
-- **JWT** - Autenticação
-- **Winston** - Logging
+## 📋 Funcionalidades
 
-## 📋 Pré-requisitos
+### Backend (Laravel 12)
+- 🔐 API RESTful completa
+- 📊 Sistema de agendamentos
+- 👥 Gestão de barbeiros
+- 🛠️ Gestão de serviços
+- 👤 Gestão de clientes
+- 📈 Dashboard com estatísticas
+- 🗄️ Migrations e Seeders
+- 🔍 Validação de dados
+- 📝 Logs e tratamento de erros
 
-- Node.js 18+
-- MongoDB 5+
+### Frontend (React)
+- 🎨 Interface moderna e responsiva
+- 📱 Design mobile-first
+- 🔄 SPA (Single Page Application)
+- 📊 Dashboard interativo
+- 📅 Gestão de agendamentos
+- 👥 Gestão de barbeiros e clientes
+- 🛠️ Gestão de serviços
+- ⚡ Carregamento rápido
+
+## 🛠️ Instalação Rápida
+
+### Pré-requisitos
+- PHP 8.2 ou superior
+- Composer
+- Node.js 16 ou superior
 - npm ou yarn
 
-## 🛠️ Instalação
-
-### 1. Clone o repositório
+### Instalação Automática
 ```bash
-git clone <repository-url>
+# Clone o repositório
+git clone <seu-repositorio>
 cd barbertime
+
+# Execute o script de instalação
+./install.sh
 ```
 
-### 2. Configure o Backend
+### Instalação Manual
 ```bash
-cd backend
+# 1. Instalar dependências do PHP
+composer install
+
+# 2. Instalar dependências do Node.js
 npm install
+
+# 3. Configurar ambiente
 cp .env.example .env
-# Edite o arquivo .env com suas configurações
+php artisan key:generate
+
+# 4. Criar banco de dados
+touch database/database.sqlite
+
+# 5. Executar migrations e seeders
+php artisan migrate --seed
+
+# 6. Compilar assets
+npm run build
+```
+
+## 🚀 Como Executar
+
+### Desenvolvimento
+```bash
+# Terminal 1 - Backend (Laravel)
+php artisan serve
+
+# Terminal 2 - Frontend (React)
 npm run dev
 ```
 
-### 3. Configure o Frontend
+### Produção
 ```bash
-cd ../
-npm install
-cp .env.example .env
-# Edite o arquivo .env com a URL da API
-npm run dev
+# Compilar assets
+npm run build
+
+# Executar servidor
+php artisan serve
 ```
 
-### 4. Acesse a aplicação
-- Frontend: `http://localhost:5173`
-- Backend API: `http://localhost:5000`
+## 📊 Estrutura do Projeto
 
-## 🎨 Funcionalidades
+```
+BarberTime/
+├── app/
+│   ├── Http/Controllers/Api/     # Controllers da API
+│   ├── Models/                   # Modelos Eloquent
+│   └── Providers/                # Service Providers
+├── database/
+│   ├── migrations/               # Migrations do banco
+│   └── seeders/                  # Seeders com dados de exemplo
+├── resources/
+│   ├── js/                       # Código React
+│   │   ├── components/           # Componentes React
+│   │   ├── pages/                # Páginas da aplicação
+│   │   ├── services/             # Serviços da API
+│   │   └── contexts/             # Contextos React
+│   └── views/                    # Views Blade
+├── routes/
+│   ├── api.php                   # Rotas da API
+│   └── web.php                   # Rotas web
+├── public/                       # Arquivos públicos
+└── config/                       # Configurações
+```
 
-### Frontend
-- ✅ Landing page responsiva
-- ✅ Sistema de agendamentos em etapas
-- ✅ Dashboard administrativo completo
-- ✅ Gerenciamento de serviços e barbeiros
-- ✅ Sistema de clientes com histórico
-- ✅ Relatórios e analytics
-- ✅ Sistema de promoções
-- ✅ Avaliações e reviews
-- ✅ Autenticação e autorização
-- ✅ Design moderno e responsivo
+## 🔗 Endpoints da API
 
-### Backend
-- ✅ API REST completa
-- ✅ Autenticação JWT
-- ✅ Sistema de roles (admin, barber, client)
-- ✅ Banco de dados MongoDB
-- ✅ Validação de dados
-- ✅ Rate limiting
-- ✅ Logs estruturados
-- ✅ Sistema de backup
-- ✅ Documentação da API
+### Agendamentos
+- `GET /api/v1/appointments` - Listar agendamentos
+- `POST /api/v1/appointments` - Criar agendamento
+- `GET /api/v1/appointments/{id}` - Buscar agendamento
+- `PUT /api/v1/appointments/{id}` - Atualizar agendamento
+- `DELETE /api/v1/appointments/{id}` - Excluir agendamento
+- `POST /api/v1/appointments/{id}/confirm` - Confirmar agendamento
+- `POST /api/v1/appointments/{id}/cancel` - Cancelar agendamento
 
-## 📱 Responsividade
+### Barbeiros
+- `GET /api/v1/barbers` - Listar barbeiros
+- `POST /api/v1/barbers` - Criar barbeiro
+- `GET /api/v1/barbers/{id}` - Buscar barbeiro
+- `PUT /api/v1/barbers/{id}` - Atualizar barbeiro
+- `DELETE /api/v1/barbers/{id}` - Excluir barbeiro
 
-O sistema é totalmente responsivo e funciona perfeitamente em:
-- 📱 Mobile (320px+)
-- 📱 Tablet (768px+)
-- 💻 Desktop (1024px+)
+### Serviços
+- `GET /api/v1/services` - Listar serviços
+- `POST /api/v1/services` - Criar serviço
+- `GET /api/v1/services/{id}` - Buscar serviço
+- `PUT /api/v1/services/{id}` - Atualizar serviço
+- `DELETE /api/v1/services/{id}` - Excluir serviço
 
-## 🔐 Segurança
+### Clientes
+- `GET /api/v1/clients` - Listar clientes
+- `POST /api/v1/clients` - Criar cliente
+- `GET /api/v1/clients/{id}` - Buscar cliente
+- `PUT /api/v1/clients/{id}` - Atualizar cliente
+- `DELETE /api/v1/clients/{id}` - Excluir cliente
 
-- Autenticação JWT
-- Criptografia de senhas (bcrypt)
-- Rate limiting
-- Validação de dados
-- CORS configurado
-- Headers de segurança
+### Dashboard
+- `GET /api/dashboard/stats` - Estatísticas do dashboard
 
-## 📊 Monitoramento
+## 🎨 Interface
 
-- Health check endpoint
-- Logs estruturados
-- Métricas de performance
-- Sistema de backup automático
+### Páginas Disponíveis
+- **Dashboard** - Visão geral com estatísticas
+- **Agendamentos** - Gestão completa de agendamentos
+- **Barbeiros** - Cadastro e gestão de barbeiros
+- **Serviços** - Catálogo de serviços oferecidos
+- **Clientes** - Cadastro e gestão de clientes
+
+### Recursos da Interface
+- 🎨 Design moderno e limpo
+- 📱 Totalmente responsiva
+- ⚡ Carregamento rápido
+- 🔄 Atualizações em tempo real
+- 🎯 Interface intuitiva
+- 🌙 Suporte a temas
+
+## 🗄️ Banco de Dados
+
+### Tabelas Principais
+- **barbers** - Dados dos barbeiros
+- **services** - Serviços oferecidos
+- **clients** - Dados dos clientes
+- **appointments** - Agendamentos
+
+### Dados de Exemplo
+O sistema inclui dados de exemplo para demonstração:
+- 4 barbeiros cadastrados
+- 9 serviços disponíveis
+- 5 clientes de exemplo
+- 5 agendamentos de demonstração
+
+## 🔧 Configuração
+
+### Variáveis de Ambiente
+```env
+APP_NAME="BarberTime"
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=sqlite
+DB_DATABASE=database/database.sqlite
+
+VITE_APP_NAME="${APP_NAME}"
+```
+
+### Personalização
+- Edite `resources/js/` para modificar o frontend
+- Edite `app/Http/Controllers/Api/` para modificar a API
+- Edite `database/seeders/` para modificar dados de exemplo
+
+## 📱 Acesso
+
+Após a instalação, acesse:
+- **Frontend**: http://localhost:8000
+- **API**: http://localhost:8000/api
+- **Health Check**: http://localhost:8000/api/health
 
 ## 🚀 Deploy
 
-### Docker
+### Para Produção
+1. Configure as variáveis de ambiente
+2. Execute `npm run build`
+3. Configure o servidor web (Apache/Nginx)
+4. Configure o banco de dados de produção
+
+### Docker (Opcional)
 ```bash
-# Backend
-cd backend
-docker build -t barbertime-backend .
-docker run -p 5000:5000 barbertime-backend
-
-# Frontend
-docker build -t barbertime-frontend .
-docker run -p 3000:3000 barbertime-frontend
+# Criar Dockerfile para o projeto
+docker build -t barbertime .
+docker run -p 8000:8000 barbertime
 ```
-
-### Variáveis de Ambiente
-
-#### Frontend (.env)
-```env
-VITE_API_URL=http://localhost:5000/api
-VITE_APP_NAME=BarberTime
-```
-
-#### Backend (.env)
-```env
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/barbertime
-JWT_SECRET=your-super-secret-jwt-key-here
-NODE_ENV=development
-```
-
-## 🧪 Testes
-
-```bash
-# Backend
-cd backend
-npm test
-
-# Frontend
-npm test
-```
-
-## 📚 Documentação
-
-- [Backend API Documentation](./backend/README.md)
-- [Frontend Components](./src/components/README.md)
-- [Database Schema](./docs/database.md)
-
-## 🎯 Próximos Passos
-
-- [ ] PWA (Progressive Web App)
-- [ ] Notificações push
-- [ ] Integração com WhatsApp Business
-- [ ] Sistema de pagamentos
-- [ ] App mobile (React Native)
-- [ ] Analytics avançados
 
 ## 🤝 Contribuição
 
@@ -172,4 +238,15 @@ npm test
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT.
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+
+## 🆘 Suporte
+
+Para suporte ou dúvidas:
+- Abra uma issue no GitHub
+- Consulte a documentação do Laravel
+- Consulte a documentação do React
+
+---
+
+**BarberTime** - Sistema completo de agendamentos para barbearia! ✂️💈
